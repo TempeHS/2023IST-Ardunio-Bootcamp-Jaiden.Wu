@@ -16,7 +16,19 @@
     https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
 */
 
+
+int myInt = HIGH;
+String myString = "3";
+bool myBool = false;
+float myFloat = 1.1;
+
 void setup() {
+Serial.begin(9600);
+Serial.println("Serial Monitor is configured to 9600");
+Serial.println("--------------------");
+Serial.print("Data stored:");
+myString = String(myBool);
+Serial.println(myString);
 
 }
 
