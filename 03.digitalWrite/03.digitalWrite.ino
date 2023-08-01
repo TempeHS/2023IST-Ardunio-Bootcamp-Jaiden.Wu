@@ -13,6 +13,7 @@
     9. I can apply this knowledge to the LED & Buzzer in the sensor kit
 
   Student Notes: 
+https://www.tinkercad.com/things/lkoYXGBftNO-03digitalwritejaidenwu/editel
 
   Documentation: 
     https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/
