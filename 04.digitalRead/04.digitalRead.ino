@@ -20,10 +20,41 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/04.digitalRead/Bootcamp-digitalRead.png
 */
 
-void setup() {
+static unsigned int myLED =4;
+static unsigned int myBuzzer =3;
+static unsigned int myButton =2;
+static unsigned int myLineSensor =8;
 
+void setup() {
+Serial.begin(9600);
+Serial.println("Serial Monitor Configured to 9600");
+Serial.println("------------------------------");
+pinMode(myBuzzer, OUTPUT);
+pinMode(myLED, OUTPUT);
+pinMode(myButton, INPUT);
+pinMode(myLineSensor, INPUT);
 }
 
-void loop() {
+void loop(){
+ int val = digitalRead(myButton);
+ int senVal = digitalRead(myLineSensor);
+ Serial.print("myButtonValue:");
+ Serial.print(String(val));
+    Serial.print(",");
+   Serial.print("lineSensorValue:");
+ Serial.println(String(senVal));
 
+ 
+ if (val) {
+   //myAlert
+ }
+}
+
+void myAlert (){
+  digitalWrite(myLED,HIGH);
+  tone(myBuzzer,128);
+  delay(500);
+  digitalWrite(myLED,LOW);
+  noTone(myBuzzer);
+  delay(5000);
 }
