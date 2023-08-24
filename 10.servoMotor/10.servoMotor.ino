@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Jaiden Wu
   Learning Intention: The students will learn how to connect and control a servo motor.
   Success Criteria:
     1. I understand how to connect the servo motor
@@ -18,14 +18,42 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/10.servoMotor/Bootcamp-servoMotor.png
 */
 
-//The Servo-h library is built into Ardunio IDE there is no need to side load it like the Ultrasonic Sensor library
+//this line loads the servo 
+#include <Servo.h>
 
+//creating a servo object
+Servo myServo;
+
+unsigned static int myServoPin= 9;
 
 void setup() {
+Serial.begin(9600);
+Serial.println("Serial Monitor Configured at 9600");
+Serial.println("-----------------------------");
+
+//configures myServo to the pin
+myServo.attach(myServoPin);
 
 }
 
 // The loop function runs over and over again forever
 void loop() {
+
+//reset servo to 0
+int val = 0;
+myServo.write(val);
+delay(250);
+
+//slowly sweep the servo 180 degrees
+for(int i=0; i<=180; i++){
+  myServo.write(i);
+  delay(50);
+}
+
+//slowly sweep servo back to 0 degrees
+for(int y=180; y<=0; y--){
+  myServo.write(y);
+  delay(50);
+}
 
 }
