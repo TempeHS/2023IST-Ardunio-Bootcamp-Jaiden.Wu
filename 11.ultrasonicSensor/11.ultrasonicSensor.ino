@@ -1,5 +1,5 @@
 /*
-  Author: 
+  Author: Jaiden Wu
   Learning Intention: The students will learn how to wire a four pin ultrasonic sensor and configure it to measure distance using a library.
   Success Criteria:
     1. I can correctly wire a 4 pin ultrasonic sensor
@@ -19,10 +19,46 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/11.ultrasonicSensor/Bootcamp-ultrasonicSensor.png
 */
 
-void setup() {
+#include <Servo.h>
+#include "Ultrasonic.h"
 
+//create a servo object
+Servo myServo;
+
+//create ultrasonic sensor and attach to pin 2
+Ultrasonic myUS(2);
+
+//variable to store distance
+unsigned int distance;
+
+//pin servo is attached to
+unsigned static int myServoPin=8;
+
+void setup() {
+Serial.begin(9600);
+Serial.println(Serial Monitor configured to 9600);
+Serial.println(------------------------------)
+
+//configure myServo to pin
+myServo.attach(myServoPin);
+myServo.write(0);
+delay(250)
 }
 
 void loop() {
+
+//read distance
+distance = myUS.MeasureInCentimeters();
+Serial.println(distance);
+if (distance < 30) {
+  myServo.write(0); 
+  } 
+  else {
+  myServo.write(180);
+}
+
+}
+
+
 
 }
