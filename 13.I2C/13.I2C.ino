@@ -57,8 +57,12 @@ if(!bmp280.init()){          // init = intialised,  != false // so if bmp280 is 
 
 void loop() {
 
-  //read pressure sensor
-  float myPressure = bmp280.getPressure();
+//print to OLED
+printToOLED(myTemp(), myPressure());
+
+
+  /**read pressure sensor
+  float myPressure = bmp280.getPressure();    
   float myTemp = bmp280.getTempearture();
   float my Altitude = bmp280.calcAltitude(myPressure);
 
@@ -67,5 +71,9 @@ MyMessage = "Howdy!!";
 MyMessage2 = "The temperature is currently:" + String(myTemp) + "c";       //converted float to string to show on OLED
 
 //print to OLED
-printToOLED (MyMessage, myMessage2);
+printToOLED (MyMessage, myMessage2);  
+
+
+
+
 }
